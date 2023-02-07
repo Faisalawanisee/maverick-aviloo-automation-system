@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
+use Illuminate\Http\Request;
+use Laravel\Nova\Menu\Menu;
+use Laravel\Nova\Menu\MenuSection;
+
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
@@ -21,6 +25,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             return view('nova.footer', [
                 'url'   => url('/footer'),
             ])->render();
+        });
+
+        Nova::mainMenu(function (Request $request) {
+            $menu = [];
+            $menu[] = MenuSection::make('Dashboard')->path('/dashboards/main')->icon('view-grid');
+            $menu[] = MenuSection::make('Customers')->path('/resources/customers')->icon('user-group');
+            $menu[] = MenuSection::make('Stores')->path('/resources/stores')->icon('globe');
+            $menu[] = MenuSection::make('Users')->path('/resources/users')->icon('user-circle');
+            return $menu;
         });
     }
 

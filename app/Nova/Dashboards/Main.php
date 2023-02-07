@@ -15,7 +15,9 @@ class Main extends Dashboard
     public function cards()
     {
         return [
-            new Help,
+            new \App\Nova\Metrics\TotalCustomers,
+            new \App\Nova\Metrics\TotalStores,
+            new \App\Nova\Metrics\TotalUsers,
         ];
     }
 }
