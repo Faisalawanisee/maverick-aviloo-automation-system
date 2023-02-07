@@ -16,6 +16,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+        Nova::style('admin', asset('css/admin.css'));
+        Nova::footer(function ($request) {
+            return view('nova.footer', [
+                'url'   => url('/footer'),
+            ])->render();
+        });
     }
 
     /**
