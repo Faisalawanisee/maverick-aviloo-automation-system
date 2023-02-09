@@ -32,6 +32,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             $menu[] = MenuSection::make('Dashboard')->path('/dashboards/main')->icon('view-grid');
             $menu[] = MenuSection::make('Customers')->path('/resources/customers')->icon('user-group');
             $menu[] = MenuSection::make('Orders')->path('/resources/orders')->icon('database');
+            $menu[] = MenuSection::make('Devices')->path('/resources/devices')->icon('globe');
             $menu[] = MenuSection::make('Stores')->path('/resources/stores')->icon('globe');
             $menu[] = MenuSection::make('Users')->path('/resources/users')->icon('user-circle');
             return $menu;
