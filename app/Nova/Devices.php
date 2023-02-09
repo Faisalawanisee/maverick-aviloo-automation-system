@@ -2,8 +2,9 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Devices extends Resource
@@ -41,6 +42,7 @@ class Devices extends Resource
     {
         return [
             ID::make()->sortable(),
+            Number::make('Serial Number')
         ];
     }
 
