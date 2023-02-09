@@ -2,9 +2,10 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
@@ -42,7 +43,10 @@ class Order extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
+            // Text::make('Name')->sortable(),
+            Number::make('WC Order'),
+            HasOne::make('Customer'),
+            HasOne::make('Device'),
         ];
     }
 

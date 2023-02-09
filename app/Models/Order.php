@@ -9,6 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
+
     public function device()
     {
         return $this->hasOne(Device::class);

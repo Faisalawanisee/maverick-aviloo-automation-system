@@ -42,7 +42,8 @@ class Device extends Resource
     {
         return [
             ID::make()->sortable(),
-            Number::make('Serial Number')
+            Number::make('Serial Number'),
+            BelongsTo::make('Order')
         ];
     }
 
