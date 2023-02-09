@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Devices extends Model
+class Device extends Model
 {
     use HasFactory;
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Devices extends Resource
+class Device extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Devices>
+     * @var class-string<\App\Models\Device>
      */
-    public static $model = \App\Models\Devices::class;
+    public static $model = \App\Models\Device::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
