@@ -2,9 +2,10 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Whitecube\NovaGoogleMaps\GoogleMaps;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Store extends Resource
@@ -43,6 +44,7 @@ class Store extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
+            GoogleMaps::make('address')
         ];
     }
 
