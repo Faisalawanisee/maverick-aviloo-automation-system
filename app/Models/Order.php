@@ -10,6 +10,10 @@ class Order extends Model
     use HasFactory;
 
     protected $guarded = ['wc_id'];
+
+    protected $casts = [
+        'order_date' => 'date'
+    ];
     
 
     public function customer()

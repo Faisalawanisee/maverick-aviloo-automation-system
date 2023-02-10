@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->integer('wc_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email')->unique();
+            $table->integer('wc_id')->default(1);
+            $table->string('name');
+            $table->string('email');
             $table->timestamps();
         });
     }
