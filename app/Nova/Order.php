@@ -6,7 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Badge;
-use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -68,25 +68,25 @@ class Order extends Resource
             Text::make('Billing Email')
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email'),
-            Number::make('billing_phone'),
-            Textarea::make('billing_address_1'),
-            Textarea::make('billing_address_2'),
-            Number::make('billing_postcode'),
-            Text::make('billing_city'),
-            Text::make('billing_state'),
-            Text::make('billing_country'),
-            Text::make('shipping_first_name'),
-            Text::make('shipping_last_name'),
-            Text::make('shipping_company'),
-            Textarea::make('shipping_address_1'),
-            Textarea::make('shipping_address_2'),
-            Number::make('shipping_postcode'),
-            Text::make('shipping_city'),
-            Text::make('shipping_state'),
-            Text::make('shipping_country'),
-            
-            HasOne::make('Customer'),
-            HasOne::make('Device'),
+            Number::make('Billing phone'),
+            Textarea::make('Billing Address 1'),
+            Textarea::make('Billing Address 2'),
+            Number::make('Billing Postcode'),
+            Text::make('Billing City'),
+            Text::make('Billing State'),
+            Text::make('Billing Country'),
+            Text::make('shipping First Name'),
+            Text::make('shipping Last Name'),
+            Text::make('shipping Company'),
+            Textarea::make('Shipping Address 1'),
+            Textarea::make('Shipping Address 2'),
+            Number::make('Shipping Postcode'),
+            Text::make('Shipping Ccity'),
+            Text::make('Shipping State'),
+            Text::make('Shipping Country'),
+            // 
+            BelongsTo::make('Customer'),
+            BelongsTo::make('Device'),
         ];
     }
 

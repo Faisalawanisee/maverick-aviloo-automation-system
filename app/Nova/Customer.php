@@ -6,7 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Customer extends Resource
@@ -45,11 +45,12 @@ class Customer extends Resource
         return [
             ID::make()->sortable(),
             Number::make('WC ID'),
-            Text::make('Name')->sortable(),
+            Text::make('First Name'),
+            Text::make('Last Name'),
             Text::make('Email')
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email'),
-            BelongsTo::make('Order')
+            HasMany::make('Order')
         ];
     }
 

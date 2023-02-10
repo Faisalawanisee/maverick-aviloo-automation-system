@@ -11,12 +11,13 @@ class Customer extends Model
 
     protected $fillable = [
         'wc_id',
-        'name',
+        'first_name',
+        'last_name',
         'email',
     ];
 
     public function order()
     {
-        return $this->belongsTo(Order::class);
+        return $this->hasMany(Order::class);
     }
 }

@@ -17,7 +17,8 @@ class CustomerController extends Controller
 
         $data = $request->validate([
             'wc_id' => 'required',
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required',
         ]);
         // 

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\StoreController;
 use App\Http\Controllers\API\CustomerController;
 
@@ -25,3 +26,5 @@ Route::get('/stores', [StoreController::class, 'index']);
 Route::get('/store/{name}', [StoreController::class, 'getByName']);
 // customer
 Route::post('/customer/create', [CustomerController::class, 'create']);
+// order
+Route::post('/order/create', [OrderController::class, 'create']);

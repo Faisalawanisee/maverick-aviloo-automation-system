@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            // $table->integer('wc_id');
+            $table->integer('wc_id');
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('device_id')->constrained();
             $table->integer('order_number');

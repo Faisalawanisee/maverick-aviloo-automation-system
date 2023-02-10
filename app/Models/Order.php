@@ -9,13 +9,16 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['wc_id'];
+    
+
     public function customer()
     {
-        return $this->hasOne(Customer::class);
+        return $this->belongsTo(Customer::class);
     }
 
     public function device()
     {
-        return $this->hasOne(Device::class);
+        return $this->belongsTo(Device::class);
     }
 }
