@@ -9,6 +9,12 @@ class Customer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'wc_id',
+        'name',
+        'email',
+    ];
+
     public function order()
     {
         return $this->belongsTo(Order::class);
