@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('wc_id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
