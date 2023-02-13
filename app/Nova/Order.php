@@ -40,11 +40,11 @@ class Order extends Resource
 
     // custom vars
     public static $statuses = [
-        'draft' => 'Draft',
-        'canceled' => 'Canceled',
+        'checkout-draft' => 'Draft',
+        'cancelled' => 'Cancelled',
         'failed' => 'Failed',
         'on-hold' => 'On Hold',
-        'pending-payment' => 'Pending Payment',
+        'pending' => 'Pending Payment',
         'processing' => 'Processing',
         'refunded' => 'Refunded',
         'completed' => 'Completed',
@@ -64,11 +64,11 @@ class Order extends Resource
             Number::make('Order Number')->readonly(true),
             DateTime::make('Order Date', 'order_date'),
             Badge::make('status')->map([
-                'draft' => 'warning',
-                'canceled' => 'danger',
+                'checkout-draft' => 'warning',
+                'cancelled' => 'danger',
                 'failed' => 'danger',
                 'on-hold' => 'warning',
-                'pending-payment' => 'warning',
+                'pending' => 'warning',
                 'processing' => 'warning',
                 'refunded' => 'warning',
                 'completed' => 'success',

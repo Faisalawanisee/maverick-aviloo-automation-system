@@ -70,12 +70,12 @@ class Order extends Model
         static::updating(function($order) {
 
             // dd($order);
-            // dd($order->billing_first_name);
+            // dd($order->status);
             
             $data = [
                 // 'device_id' => $order->device_id,
                 // 'order_date' => $order->order_date,
-                // 'status' => $order->status,
+                'status' => $order->status,
                 // 'shipping_total' => $order->shipping_total,
                 // 'shipping_tax_total' => $order->shipping_tax_total,
                 // 'discount_total' => $order->discount_total,
@@ -83,9 +83,8 @@ class Order extends Model
                 // 'order_currency' => $order->order_currency,
                 // 'payment_method' => $order->payment_method,
                 // 'shipping_method' => $order->shipping_method,
-                'billing_first_name' => 'New Bikeersss',
+                // 'billing_first_name' => 'New Bikeersss',
                 // 'billing_last_name' => $order->billing_last_name,
-                'status' => 'completed',
                 // 'billing_company' => $order->billing_company,
                 // 'billing_email' => $order->billing_email,
                 // 'billing_phone' => $order->billing_phone,
