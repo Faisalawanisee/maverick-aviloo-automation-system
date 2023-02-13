@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Models\Order;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
@@ -57,13 +56,12 @@ class OrderController extends Controller
 
         // create customer
         $customer_data = array(
-            'wc_id' => $data['customer_id'],
             'name' => $data['customer_name'],
             'email' => $data['customer_email'],
         );
-        Customer::create($customer_data);
+        $customer = Customer::updateOrCreate(['wc_id' => $data['customer_id']], $customer_data);
         // create order
-        $order = Order::create($data);
+        $order = Order::updateOrCreate(['wc_id' => $data['wc_id']], $data);
         // 
         return $order;
     }
