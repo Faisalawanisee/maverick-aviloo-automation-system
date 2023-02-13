@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->integer('wc_id')->default(1);
+            $table->integer('wc_id');
             $table->string('name');
             $table->string('email');
             $table->timestamps();

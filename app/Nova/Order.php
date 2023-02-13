@@ -91,7 +91,7 @@ class Order extends Resource
             Text::make('Shipping Country'),
             // 
             BelongsTo::make('Customer'),
-            // BelongsTo::make('Device'),
+            BelongsTo::make('Device'),
         ];
     }
 
