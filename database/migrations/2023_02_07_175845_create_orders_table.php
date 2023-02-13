@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('wc_id')->default(1);
             $table->foreignId('customer_id');
-            // $table->foreignId('device_id')->constrained();
+            $table->foreignId('device_id')->constrained();
             $table->integer('order_number');
             $table->datetime('order_date');
             $table->string('status');
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('billing_last_name');
             $table->string('billing_company')->nullable();
             $table->string('billing_email');
-            $table->integer('billing_phone');
+            $table->string('billing_phone');
             $table->text('billing_address_1');
             $table->text('billing_address_2')->nullable();
             $table->integer('billing_postcode');

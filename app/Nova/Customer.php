@@ -45,8 +45,7 @@ class Customer extends Resource
         return [
             ID::make()->sortable(),
             Number::make('WC ID'),
-            Text::make('First Name'),
-            Text::make('Last Name'),
+            Text::make('Name'),
             Text::make('Email')
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email'),

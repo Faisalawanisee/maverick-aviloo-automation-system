@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Device;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,6 +22,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@fabmedi.io',
             'password' => Hash::make('admin@fabmedi.io'),
+        ]);
+        // 
+        Device::create([
+            'name' => 'First Device',
+            'serial_number' => 12345,
         ]);
     }
 }

@@ -62,7 +62,6 @@ class Order extends Resource
             ]),
             Number::make('Shipping Total'),
             Number::make('Shipping Tax Total'),
-            Number::make('Fee Total'),
             Number::make('Discount Total'),
             Number::make('Order Total'),
             Text::make('Order currency'),
@@ -73,8 +72,8 @@ class Order extends Resource
             Text::make('Billing Company'),
             Text::make('Billing Email')
                 ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email'),
-            Number::make('Billing phone'),
+                ->creationRules('email'),
+            Text::make('Billing phone'),
             Textarea::make('Billing Address 1'),
             Textarea::make('Billing Address 2'),
             Number::make('Billing Postcode'),
@@ -92,7 +91,7 @@ class Order extends Resource
             Text::make('Shipping Country'),
             // 
             BelongsTo::make('Customer'),
-            BelongsTo::make('Device'),
+            // BelongsTo::make('Device'),
         ];
     }
 
