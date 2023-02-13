@@ -17,24 +17,20 @@ class OrderController extends Controller
     // create
     public function create(Request $request) {
 
-        // Log::emergency($request->wc_id);
-        // die();
-
         $data = $request->validate([
             'wc_id' => 'required',
             'order_number' => 'required',
-            'order_date' => 'required',
             'status' => 'required',
-            'shipping_total' => 'required',
-            'shipping_tax_total' => 'required',
+            'order_date' => 'required',
             'discount_total' => 'required',
-            'order_total' => 'required',
-            'order_currency' => 'required',
-            'payment_method' => 'required',
-            'shipping_method' => 'nullable',
+            'total_tax' => 'required',
+            'shipping_total' => 'required',
+            'total' => 'required',
             'customer_id' => 'required',
             'customer_name' => 'required',
             'customer_email' => 'required',
+            'payment_method' => 'required',
+            'shipping_method' => 'nullable',
             'billing_first_name' => 'required',
             'billing_last_name' => 'required',
             'billing_company' => 'required',
@@ -69,7 +65,6 @@ class OrderController extends Controller
         // create order
         $order = Order::create($data);
         // 
-        Log::emergency($order);
         return $order;
     }
 }
