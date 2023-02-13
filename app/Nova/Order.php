@@ -6,10 +6,11 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Badge;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
@@ -37,6 +38,18 @@ class Order extends Resource
         'name',
     ];
 
+    // custom vars
+    public static $statuses = [
+        'draft' => 'Draft',
+        'canceled' => 'Canceled',
+        'failed' => 'Failed',
+        'on-hold' => 'On Hold',
+        'pending-payment' => 'Pending Payment',
+        'processing' => 'Processing',
+        'refunded' => 'Refunded',
+        'completed' => 'Completed',
+    ];
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -47,8 +60,8 @@ class Order extends Resource
     {
         return [
             ID::make()->sortable(),
-            Number::make('WC Order', 'wc_id'),
-            Number::make('Order Number'),
+            Number::make('WC Order', 'wc_id')->readonly(true),
+            Number::make('Order Number')->readonly(true),
             DateTime::make('Order Date', 'order_date'),
             Badge::make('status')->map([
                 'draft' => 'warning',
@@ -59,7 +72,8 @@ class Order extends Resource
                 'processing' => 'warning',
                 'refunded' => 'warning',
                 'completed' => 'success',
-            ]),
+            ])->labels(self::$statuses),
+            Select::make('status')->options(self::$statuses)->hideFromIndex(),
             Number::make('Shipping Total'),
             Number::make('Shipping Tax Total'),
             Number::make('Discount Total'),

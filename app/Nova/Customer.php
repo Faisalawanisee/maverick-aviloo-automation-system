@@ -44,7 +44,7 @@ class Customer extends Resource
     {
         return [
             ID::make()->sortable(),
-            Number::make('WC ID'),
+            Number::make('WC ID')->readonly(true),
             Text::make('Name'),
             Text::make('Email')
                 ->rules('required', 'email', 'max:254')
