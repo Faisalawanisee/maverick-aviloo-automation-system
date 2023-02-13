@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
+use Codexshaper\WooCommerce\Facades\Order as WCOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
@@ -69,12 +70,46 @@ class Order extends Model
         static::updating(function($order) {
 
             // dd($order);
+            // dd($order->billing_first_name);
+            
+            $data = [
+                // 'device_id' => $order->device_id,
+                // 'order_date' => $order->order_date,
+                // 'status' => $order->status,
+                // 'shipping_total' => $order->shipping_total,
+                // 'shipping_tax_total' => $order->shipping_tax_total,
+                // 'discount_total' => $order->discount_total,
+                // 'order_total' => $order->order_total,
+                // 'order_currency' => $order->order_currency,
+                // 'payment_method' => $order->payment_method,
+                // 'shipping_method' => $order->shipping_method,
+                'billing_first_name' => 'New Bikeersss',
+                // 'billing_last_name' => $order->billing_last_name,
+                'status' => 'completed',
+                // 'billing_company' => $order->billing_company,
+                // 'billing_email' => $order->billing_email,
+                // 'billing_phone' => $order->billing_phone,
+                // 'billing_address_1' => $order->billing_address_1,
+                // 'billing_address_2' => $order->billing_address_2,
+                // 'billing_postcode' => $order->billing_postcode,
+                // 'billing_city' => $order->billing_city,
+                // 'billing_state' => $order->billing_state,
+                // 'billing_country' => $order->billing_country,
+                // 'shipping_first_name' => $order->shipping_first_name,
+                // 'shipping_last_name' => $order->shipping_last_name,
+                // 'shipping_company' => $order->shipping_company,
+                // 'shipping_address_1' => $order->shipping_address_1,
+                // 'shipping_address_2' => $order->shipping_address_2,
+                // 'shipping_postcode' => $order->shipping_postcode,
+                // 'shipping_city' => $order->shipping_city,
+                // 'shipping_state' => $order->shipping_state,
+                // 'shipping_country' => $order->shipping_country,
+            ];
 
-            $response = Http::delete('http://test-woocommerce.test/wp-json/wc/v3/orders/'.$order->id);
+            $order = WCOrder::update($order->wc_id, $data);
 
-            Log::emergency($response);
-            // $response = Http::put('http://test-woocommerce.test/wp-json/wc/v3/orders/'.$order->id, $order);
-
+            Log::emergency($order);
+            // 
             return true;
         });
     }
