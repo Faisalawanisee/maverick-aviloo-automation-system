@@ -68,6 +68,12 @@ class Order extends Model
         static::updating(function($order) {
             $data = [
                 'status' => $order->status,
+                "meta_data" => array(
+                    array(
+                        "key" => "nova_update",
+                        "value" => true
+                    )
+                )
             ];
             // update order api 
             $order = WCOrder::update($order->wc_id, $data);
